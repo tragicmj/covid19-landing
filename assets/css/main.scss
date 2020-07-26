@@ -1,1 +1,489 @@
 @import "_breakpoints", "_functions", "_variables";
+//++++fonts++++//
+@font-face {
+  font-family: "Red Hat Display";
+  src: local("Red Hat Display Bold"), local("../fonts"),
+    url("../fonts/RedHatDisplay-Bold.woff2") format("woff2"),
+    url("../fonts/RedHatDisplay-Bold.woff") format("woff"),
+    url("../fonts/RedHatDisplay-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Red Hat Display";
+  src: local("Red Hat Display Medium"), local("../fonts"),
+    url("../fonts/RedHatDisplay-Medium.woff2") format("woff2"),
+    url("../fonts/RedHatDisplay-Medium.woff") format("woff"),
+    url("../fonts/RedHatDisplay-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Red Hat Display";
+  src: local("Red Hat Display Regular"), local("../fonts"),
+    url("../fonts/RedHatDisplay-Regular.woff2") format("woff2"),
+    url("../fonts/RedHatDisplay-Regular.woff") format("woff"),
+    url("../fonts/RedHatDisplay-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Avenir";
+  src: local("Avenir Roman"), local("./fonts"),
+    url("../fonts/Avenir-Roman.woff2") format("woff2"),
+    url("../fonts/Avenir-Roman.woff") format("woff"),
+    url("../fonts/Avenir-Roman.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Avenir";
+  src: local("Avenir Medium"), local("../fonts"),
+    url("../fonts/Avenir-Medium.woff2") format("woff2"),
+    url("../fonts/Avenir-Medium.woff") format("woff"),
+    url("../fonts/Avenir-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+//++++basic++++//
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+  font-weight: normal;
+  margin: 0;
+  color: color(font-dark);
+  font-size: 16px;
+  font-family: $avenir;
+  font-weight: 400;
+  @include media-breakpoint-down(sm) {
+    font-size: 15px;
+  }
+}
+// body {
+//   &.mobileMenuActive,
+//   &.modal-open,
+//   &.filterActive,
+//   &.notificationActive {
+//     height: 100vh;
+//     overflow: hidden;
+//     padding-right: 0;
+//   }
+// }
+p {
+  letter-spacing: 0.25px;
+  line-height: 32px;
+  text-transform: capitalize;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  font-family: $redhat;
+}
+a,
+button {
+  cursor: pointer;
+  display: block;
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    outline: none;
+  }
+}
+ul {
+  padding-left: 20px;
+  margin: 0;
+}
+::-moz-selection {
+  background-color: #fa5652;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #fff;
+}
+::selection {
+  background-color: #fa5652;
+  color: #ffffff !important;
+  -webkit-text-fill-color: #fff;
+}
+.sectionWrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+  padding: 0 20px;
+  @include breakpoint(curved) {
+    max-width: 1450px;
+  }
+  @include media-breakpoint-down(sm) {
+    padding: 0 15px;
+  }
+}
+.siteBtn {
+  border-radius: 36px;
+  width: max-content;
+  padding: 16px 35px;
+  font-weight: 500;
+  margin-top: 30px;
+}
+.siteTitle {
+  text-align: center;
+  margin: 0 0 20px;
+  h6 {
+    color: color(primary);
+  }
+  h2 {
+    color: color(secondary);
+    margin: 0 0 20px;
+  }
+  p {
+    font-size: 14px;
+    line-height: 25px;
+  }
+}
+//++++header++++//
+header {
+  position: absolute;
+  width: 100%;
+  margin: 15px 0;
+  .logoWrapper {
+    img {
+      height: 65px;
+    }
+  }
+  .menuWrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    .menuItem {
+      a {
+        color: color(secondary);
+        position: relative;
+      }
+      &.active {
+        a {
+          color: #fb4c47;
+          font-weight: 500;
+          &:before {
+            content: "";
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #ff383d;
+            border-radius: 100%;
+            bottom: -10px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+          }
+        }
+      }
+      .headerBtn {
+        font-size: 17px;
+        padding: 10px 35px;
+        border-radius: 36px;
+        font-weight: 500;
+        color: #ff383d;
+        border: 1.5px solid #ff383d;
+        &:hover,
+        &:focus {
+          background: #ff383d;
+          color: $white;
+        }
+      }
+    }
+    .menuItem + .menuItem {
+      margin-left: 18px;
+    }
+  }
+}
+//++++banner++++//
+.bannerWrapper {
+  background: url("../images/bg.png");
+  background-size: cover;
+  background-position: center;
+  padding: 110px 0 30px;
+  .illWrap {
+    img {
+      margin-left: auto;
+      display: block;
+      height: 580px;
+      width: auto;
+      @include breakpoint(curved) {
+        height: unset;
+        width: 100%;
+      }
+    }
+  }
+  .content {
+    padding-left: 0;
+    max-width: 480px;
+    margin-left: auto;
+    @include breakpoint(curved) {
+      max-width: 510px;
+    }
+    h6 {
+      color: color(primary);
+    }
+    h3 {
+      color: color(secondary);
+      font-size: 38px;
+      text-transform: capitalize;
+      margin: 0 0 16px;
+      @include breakpoint(curved) {
+        font-size: 40px;
+      }
+    }
+    .siteBtn {
+      background: color(primary);
+      color: $white;
+      box-shadow: $boxShadowOne;
+    }
+  }
+}
+//++++about us++++//
+.aboutUsWrapper {
+  padding: 0 0 25px;
+  background: url("../images/icons/aboutBg.png") no-repeat bottom right;
+  background-size: 120px;
+  position: relative;
+  img {
+    height: 500px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  .content {
+    padding: 0 20px;
+    h6 {
+      color: color(primary);
+    }
+    h2 {
+      color: color(secondary);
+    }
+    .siteBtn {
+      color: color(primary);
+      background: lighten(color(primary), 30%);
+    }
+  }
+}
+//++++contagion++++//
+.contagionWrapper {
+  padding: 23px 0 50px;
+  position: relative;
+  .circleimg {
+    position: absolute;
+    right: 3%;
+    top: -4%;
+  }
+  .colCustom {
+    padding: 0 12px;
+    .imgCovid {
+      position: absolute;
+      left: -15%;
+      width: 135px;
+      height: 135px;
+      bottom: 3%;
+    }
+  }
+  .contagionBlockWrapper {
+    margin: 16px 16px 0;
+    .contagionBlock {
+      background: $white;
+      position: relative;
+      border-radius: 6px;
+      text-align: center;
+      padding: 50px 30px;
+      box-shadow: 0px 0px 30px 10px rgba(202, 202, 202, 0.29);
+      transition: all 0.4s ease-in;
+      &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 4px;
+        left: 0;
+        bottom: 0;
+        background: transparent;
+        transition: all 0.4s linear;
+      }
+      &:hover {
+        box-shadow: 0px 9px 20px 6px rgba(202, 202, 202, 0.29);
+        transition: all 0.4s ease-in;
+        &:before {
+          background: color(primary);
+          transition: all 0.4s linear;
+        }
+      }
+      .iconWrapper {
+        margin: 0 0 55px;
+        img {
+          height: 185px;
+        }
+      }
+      .content {
+        h4 {
+          color: color(secondary);
+          margin: 0 0 20px;
+          font-size: 27px;
+        }
+        p {
+          font-size: 15px;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+//+++++symptoms++++//
+.symptomsWrapper {
+  padding: 55px 0;
+  position: relative;
+  .imgLeft {
+    position: absolute;
+    left: 3%;
+    bottom: 20%;
+    height: 140px;
+  }
+  .imgRight {
+    position: absolute;
+    right: 3%;
+    bottom: 2%;
+    height: 130px;
+  }
+  .symptomImg {
+    height: 580px;
+    display: block;
+    margin: 0 auto;
+  }
+}
+//++++what should we do++++//
+.whatShouldWrapper {
+  padding: 50px 0;
+  position: relative;
+  .doLeft {
+    position: absolute;
+    width: 70px;
+    left: -2%;
+    top: 27%;
+  }
+  .doRightGreen {
+    position: absolute;
+    width: 80px;
+    right: 3%;
+    bottom: 20%;
+  }
+  .doRight {
+    position: absolute;
+    right: -1%;
+    bottom: 10%;
+    width: 130px;
+  }
+  .shouldDoBlock {
+    align-items: center;
+    justify-content: space-between;
+    .contentWrap {
+      display: flex;
+      justify-content: space-between;
+      .imgWrapper {
+        max-width: 15%;
+        flex-basis: 15%;
+        img {
+          width: 65px;
+        }
+      }
+      .content {
+        max-width: 85%;
+        flex-basis: 85%;
+        padding: 18px 35px 0 0;
+        h3 {
+          color: color(secondary);
+        }
+        p {
+          font-size: 14px;
+          width: 84%;
+        }
+      }
+    }
+    .shouldDoImg {
+      height: 450px;
+      width: auto;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}
+//++++map & subscribe++++//
+.mapSubscribeWrapper {
+  padding: 50px 0;
+  .mapWrapper {
+    img {
+      width: 95%;
+    }
+  }
+  .liveReportsWrapper {
+    background: $white;
+    box-shadow: $boxShadowOne;
+    padding: 40px 25px 30px;
+    .heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0 0 20px;
+      h3 {
+        color: color(secondary);
+        margin: 0;
+        font-size: 30px;
+      }
+      .arrowsWrapper {
+        display: flex;
+        box-shadow: $boxShadowOne;
+        position: relative;
+        padding: 10px 5px;
+        &:before {
+          content: "";
+          width: 2px;
+          position: absolute;
+          height: 62%;
+          left: 0;
+          right: 0;
+          margin: 0 auto;
+          background: #dee1ed;
+        }
+        a {
+          margin: 0 15px;
+          img {
+            width: 7px;
+          }
+        }
+      }
+    }
+    .countryCountWrap {
+      display: flex;
+      justify-content: space-between;
+      color: color(secondary);
+      font-weight: 700;
+      .country {
+        font-size: 16px;
+        display: flex;
+        align-items: flex-end;
+        img {
+          margin-right: 18px;
+          width: 34px;
+        }
+      }
+      .count {
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        img {
+          margin-left: 12px;
+          width: 15px;
+        }
+      }
+    }
+    .countryCountWrap + .countryCountWrap {
+      margin-top: 25px;
+    }
+  }
+}

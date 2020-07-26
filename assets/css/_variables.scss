@@ -1120,23 +1120,14 @@ $print-body-min-width: map-get($grid-breakpoints, "lg") !default;
 
 //++++Color Variables++++//
 $colors: (
-  font-white: #fff,
-  bgcolorlight: #f7f7f7,
-  font-dark: #1b1b1b,
-  snow-white: #fafafa,
-  sucess-green: rgb(56, 136, 47),
-  four: rgb(80, 181, 71),
-  three: rgb(187, 217, 89),
-  two: rgb(248, 209, 73),
-  failed-red: #e84342,
-  darkOne: rgb(58, 59, 60),
-  darkTwo: rgb(24, 25, 26),
-  darkThree: rgb(36, 37, 38),
+  primary: #fa5652,
+  secondary: #035755,
+  font-dark: #000000,
 );
 @function color($color-name) {
   @return map-get($colors, $color-name);
 }
 
-$heaingFont: "Circular Std", sans-serif;
-$boxShadowDark: 0 4px 22px 1px rgba(202, 202, 202, 0.29);
-$boxShadowTwo: 0 4px 22px 1px rgba(35, 35, 35, 0.29);
+$boxShadowOne: 0px 0px 25px 10px rgba(202, 202, 202, 0.29);
+$avenir: "Avenir", sans-serif;
+$redhat: "Red Hat Display", sans-serif;

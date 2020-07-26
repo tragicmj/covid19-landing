@@ -141,4 +141,9 @@
       @content;
     }
   }
+  @if $point=curved {
+    @media (min-width: 1600px) {
+      @content;
+    }
+  }
 }
