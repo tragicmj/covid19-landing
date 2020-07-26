@@ -60,16 +60,6 @@ body {
     font-size: 15px;
   }
 }
-// body {
-//   &.mobileMenuActive,
-//   &.modal-open,
-//   &.filterActive,
-//   &.notificationActive {
-//     height: 100vh;
-//     overflow: hidden;
-//     padding-right: 0;
-//   }
-// }
 p {
   letter-spacing: 0.25px;
   line-height: 32px;
@@ -113,9 +103,9 @@ ul {
   margin: 0 auto;
   position: relative;
   padding: 0 20px;
-  @include breakpoint(curved) {
-    max-width: 1450px;
-  }
+  // @include breakpoint(curved) {
+  //   max-width: 1450px;
+  // }
   @include media-breakpoint-down(sm) {
     padding: 0 15px;
   }
@@ -205,14 +195,29 @@ header {
   background-position: center;
   padding: 110px 0 30px;
   .illWrap {
+    @include media-breakpoint-down(sm) {
+      padding: 0 15px;
+    }
     img {
       margin-left: auto;
       display: block;
       height: 580px;
       width: auto;
-      @include breakpoint(curved) {
+      position: relative;
+      right: -9%;
+      @include breakpoint(xlr) {
         height: unset;
         width: 100%;
+      }
+      @include media-breakpoint-down(md) {
+        width: auto;
+        height: 400px;
+        right: 0;
+        margin: 30px auto 0;
+      }
+      @include media-breakpoint-down(sm) {
+        width: 100%;
+        height: auto;
       }
     }
   }
@@ -220,8 +225,16 @@ header {
     padding-left: 0;
     max-width: 480px;
     margin-left: auto;
-    @include breakpoint(curved) {
-      max-width: 510px;
+    // @include breakpoint(curved) {
+    //   max-width: 510px;
+    // }
+    @include breakpoint(xlr) {
+      max-width: 100%;
+      margin-left: 30px;
+    }
+    @include media-breakpoint-down(md) {
+      margin: 0;
+      padding: 0 20px;
     }
     h6 {
       color: color(primary);
@@ -231,8 +244,14 @@ header {
       font-size: 38px;
       text-transform: capitalize;
       margin: 0 0 16px;
-      @include breakpoint(curved) {
-        font-size: 40px;
+      // @include breakpoint(curved) {
+      //   font-size: 40px;
+      // }
+      @include breakpoint(xlr) {
+        font-size: 33px;
+      }
+      @include media-breakpoint-down(sm) {
+        font-size: 26px;
       }
     }
     .siteBtn {
@@ -248,11 +267,18 @@ header {
   background: url("../images/icons/aboutBg.png") no-repeat bottom right;
   background-size: 120px;
   position: relative;
+  @include media-breakpoint-down(sm) {
+    background-size: 50px;
+  }
   img {
     height: 500px;
     width: auto;
     display: block;
     margin: 0 auto;
+    @include media-breakpoint-down(sm) {
+      width: 100%;
+      height: auto;
+    }
   }
   .content {
     padding: 0 20px;
@@ -276,9 +302,15 @@ header {
     position: absolute;
     right: 3%;
     top: -4%;
+    @include media-breakpoint-down(sm) {
+      top: -1%;
+    }
   }
   .colCustom {
     padding: 0 12px;
+    @include media-breakpoint-down(md) {
+      margin-bottom: 20px;
+    }
     .imgCovid {
       position: absolute;
       left: -15%;
@@ -287,6 +319,7 @@ header {
       bottom: 3%;
     }
   }
+
   .contagionBlockWrapper {
     margin: 16px 16px 0;
     .contagionBlock {
@@ -317,8 +350,14 @@ header {
       }
       .iconWrapper {
         margin: 0 0 55px;
+        @include media-breakpoint-down(sm) {
+          margin: 0 0 30px;
+        }
         img {
           height: 185px;
+          @include media-breakpoint-down(sm) {
+            height: 150px;
+          }
         }
       }
       .content {
@@ -326,6 +365,13 @@ header {
           color: color(secondary);
           margin: 0 0 20px;
           font-size: 27px;
+          @include breakpoint(xlr) {
+            font-size: 25px;
+          }
+          @include media-breakpoint-down(sm) {
+            margin: 0 0 12px;
+            font-size: 23px;
+          }
         }
         p {
           font-size: 15px;
@@ -344,17 +390,39 @@ header {
     left: 3%;
     bottom: 20%;
     height: 140px;
+    @include media-breakpoint-down(md) {
+      height: 85px;
+    }
+    @include media-breakpoint-down(sm) {
+      display: none;
+    }
   }
   .imgRight {
     position: absolute;
     right: 3%;
     bottom: 2%;
     height: 130px;
+    @include media-breakpoint-down(md) {
+      height: 75px;
+    }
+    @include media-breakpoint-down(sm) {
+      display: none;
+    }
   }
   .symptomImg {
     height: 580px;
     display: block;
     margin: 0 auto;
+    @include breakpoint(xlr) {
+      height: 435px;
+    }
+    @include media-breakpoint-down(md) {
+      height: 380px;
+    }
+    @include media-breakpoint-down(sm) {
+      width: 100%;
+      height: auto;
+    }
   }
 }
 //++++what should we do++++//
@@ -366,6 +434,9 @@ header {
     width: 70px;
     left: -2%;
     top: 27%;
+    @include media-breakpoint-down(sm) {
+      width: 30px;
+    }
   }
   .doRightGreen {
     position: absolute;
@@ -378,30 +449,60 @@ header {
     right: -1%;
     bottom: 10%;
     width: 130px;
+    @include media-breakpoint-down(sm) {
+      right: -9%;
+      bottom: 12%;
+      width: 76px;
+    }
   }
   .shouldDoBlock {
     align-items: center;
     justify-content: space-between;
+    @include media-breakpoint-down(md) {
+      margin: 0 0 15px;
+    }
     .contentWrap {
       display: flex;
       justify-content: space-between;
       .imgWrapper {
         max-width: 15%;
         flex-basis: 15%;
+        @include media-breakpoint-down(md) {
+          max-width: 10%;
+          flex-basis: 10%;
+        }
+        @include media-breakpoint-down(sm) {
+          max-width: 14%;
+          flex-basis: 14%;
+        }
         img {
           width: 65px;
+          @include breakpoint(xlr) {
+            width: 60px;
+          }
         }
       }
       .content {
         max-width: 85%;
         flex-basis: 85%;
         padding: 18px 35px 0 0;
+        @include breakpoint(xlr) {
+          padding: 18px 0 0 10px;
+        }
+        @include media-breakpoint-down(md) {
+          max-width: 90%;
+          flex-basis: 90%;
+          padding: 15px 0 0 12px;
+        }
         h3 {
           color: color(secondary);
         }
         p {
           font-size: 14px;
           width: 84%;
+          @include breakpoint(xlr) {
+            width: 100%;
+          }
         }
       }
     }
@@ -410,80 +511,314 @@ header {
       width: auto;
       display: block;
       margin: 0 auto;
+      @include breakpoint(xlr) {
+        height: 390px;
+      }
+      @include media-breakpoint-down(sm) {
+        width: 100%;
+        height: auto;
+      }
     }
   }
 }
 //++++map & subscribe++++//
 .mapSubscribeWrapper {
   padding: 50px 0;
-  .mapWrapper {
-    img {
-      width: 95%;
-    }
-  }
-  .liveReportsWrapper {
-    background: $white;
-    box-shadow: $boxShadowOne;
-    padding: 40px 25px 30px;
-    .heading {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin: 0 0 20px;
-      h3 {
-        color: color(secondary);
-        margin: 0;
-        font-size: 30px;
+  position: relative;
+  background: linear-gradient(0deg, #fff1f1, transparent);
+  .mapSection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    // @include breakpoint(curved) {
+    //   align-items: flex-start;
+    // }
+    .mapWrapper {
+      max-width: 68%;
+      position: relative;
+      flex-basis: 68%;
+      @include breakpoint(xlr) {
+        max-width: 60%;
+        flex-basis: 60%;
       }
-      .arrowsWrapper {
-        display: flex;
-        box-shadow: $boxShadowOne;
-        position: relative;
-        padding: 10px 5px;
-        &:before {
-          content: "";
-          width: 2px;
-          position: absolute;
-          height: 62%;
-          left: 0;
-          right: 0;
-          margin: 0 auto;
-          background: #dee1ed;
+      @include media-breakpoint-down(md) {
+        max-width: 100%;
+        flex-basis: 100%;
+      }
+      .map {
+        display: block;
+        width: auto;
+        height: 420px;
+        margin-left: auto;
+        // @include breakpoint(curved) {
+        //   height: 500px;
+        // }
+        @include breakpoint(xlr) {
+          width: 100%;
+          height: auto;
         }
-        a {
-          margin: 0 15px;
+      }
+      .searchWrapper {
+        padding: 12px 12px 13px 14px;
+        box-shadow: 0px 0px 25px 10px rgba(245, 143, 154, 0.22);
+        background: $white;
+        position: absolute;
+        top: 0%;
+        right: -3%;
+        img {
+          width: 22px;
+        }
+        @include breakpoint(xlr) {
+          top: -12%;
+        }
+        @include media-breakpoint-down(md) {
+          top: 0;
+          right: 2%;
+        }
+      }
+      .navigateWrapper {
+        position: absolute;
+        top: 0;
+        left: 16%;
+        background: $white;
+        box-shadow: $boxShadowOne;
+        padding: 13px 15px;
+        @include breakpoint(xlr) {
+          left: 8%;
+        }
+        @include media-breakpoint-down(md) {
+          left: 2%;
+        }
+        .divider {
+          width: 5px;
+          height: 1.5px;
+          display: block;
+          margin: 15px auto;
+          background: #a2a5b2;
+        }
+        .plusWrap {
           img {
-            width: 7px;
+            width: 15px;
+            display: block;
+            margin: 0 auto;
+          }
+        }
+        .negativeWrap {
+          img {
+            width: 15px;
+            display: block;
+            margin: 0 auto;
+          }
+        }
+        .compass {
+          img {
+            width: 10px;
+            display: block;
+            margin: 0 auto;
           }
         }
       }
     }
-    .countryCountWrap {
-      display: flex;
-      justify-content: space-between;
-      color: color(secondary);
-      font-weight: 700;
-      .country {
-        font-size: 16px;
-        display: flex;
-        align-items: flex-end;
-        img {
-          margin-right: 18px;
-          width: 34px;
-        }
+    .liveReportsWrapper {
+      background: $white;
+      box-shadow: $boxShadowOne;
+      padding: 45px 25px 30px;
+      max-width: 28%;
+      flex-basis: 28%;
+      z-index: 2;
+      @include breakpoint(xlr) {
+        max-width: 35%;
+        flex-basis: 35%;
       }
-      .count {
-        font-size: 14px;
+      @include media-breakpoint-down(md) {
+        max-width: 100%;
+        flex-basis: 100%;
+        margin: 25px 0 0;
+      }
+      .heading {
         display: flex;
         align-items: center;
-        img {
-          margin-left: 12px;
-          width: 15px;
+        justify-content: space-between;
+        margin: 0 0 40px;
+        h3 {
+          color: color(secondary);
+          margin: 0;
+          font-size: 27px;
+        }
+        .arrowsWrapper {
+          display: flex;
+          box-shadow: $boxShadowOne;
+          position: relative;
+          padding: 6px 5px;
+          &:before {
+            content: "";
+            width: 2px;
+            position: absolute;
+            height: 62%;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            background: #dee1ed;
+          }
+          a {
+            margin: 0 10px;
+            img {
+              width: 7px;
+            }
+          }
+        }
+      }
+      .countryCountWrap {
+        display: flex;
+        justify-content: space-between;
+        color: color(secondary);
+        font-weight: 700;
+        .country {
+          font-size: 16px;
+          display: flex;
+          align-items: flex-end;
+          img {
+            margin-right: 18px;
+            width: 34px;
+          }
+        }
+        .count {
+          font-size: 14px;
+          display: flex;
+          align-items: center;
+          img {
+            margin-left: 12px;
+            width: 15px;
+          }
+        }
+      }
+      .countryCountWrap + .countryCountWrap {
+        margin-top: 25px;
+      }
+    }
+  }
+  .subscribeWrap {
+    padding: 70px 0 0;
+    h2 {
+      color: color(secondary);
+      font-size: 42px;
+      text-align: center;
+      margin: 0 0 35px;
+      @include breakpoint(xlr) {
+        font-size: 30px;
+      }
+    }
+    form {
+      background: $white;
+      border-radius: 36px;
+      width: max-content;
+      margin: 0 auto;
+      z-index: 2;
+      box-shadow: $boxShadowOne;
+      input {
+        border: 0;
+        &:focus {
+          border: 0;
+          outline: none;
+        }
+      }
+      input:not(.siteBtn) {
+        background: transparent;
+
+        padding: 27px 25px;
+        width: 400px;
+        @include breakpoint(xlr) {
+          width: 260px;
+        }
+        @include media-breakpoint-down(sm) {
+          width: 180px;
+        }
+      }
+      .siteBtn {
+        background: color(primary);
+        color: $white;
+        margin: 0 15px 0 0;
+
+        padding: 16px 50px;
+      }
+    }
+  }
+  .footerImg {
+    position: absolute;
+    right: 0;
+    bottom: -6%;
+    width: 135px;
+    z-index: 0;
+    @include media-breakpoint-down(sm) {
+      width: 60px;
+    }
+  }
+  .subscribeImg {
+    position: absolute;
+    right: 7%;
+    bottom: 15%;
+    width: 150px;
+    z-index: -1;
+  }
+}
+//+++++footer++++//
+footer {
+  background: #fff1f1;
+  padding: 30px 0 10px;
+  .mainFooter {
+    padding: 0 0 20px;
+    .logoWrapper {
+      height: 65px;
+      @include media-breakpoint-down(md) {
+        text-align: center;
+        margin-bottom: 25px;
+      }
+    }
+    .menuWrapper {
+      display: flex;
+      justify-content: center;
+      a {
+        color: #00402e;
+        @include media-breakpoint-down(sm) {
+          font-size: 14px;
+        }
+      }
+      a + a {
+        margin-left: 40px;
+        @include media-breakpoint-down(sm) {
+          margin-left: 14px;
         }
       }
     }
-    .countryCountWrap + .countryCountWrap {
-      margin-top: 25px;
+    .socialWrapper {
+      display: flex;
+      justify-content: flex-end;
+      @include media-breakpoint-down(md) {
+        justify-content: center;
+        margin-top: 25px;
+      }
+      a {
+        img {
+          width: auto;
+          height: 10px;
+          &.fb {
+            height: 14px;
+          }
+        }
+      }
+      a + a {
+        margin-left: 20px;
+      }
+    }
+  }
+  .absoluteFooter {
+    p {
+      text-align: center;
+      color: #415e56;
+      margin: 0;
+      text-transform: unset;
+      font-size: 14px;
     }
   }
 }
